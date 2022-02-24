@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Quixlab - Bootstrap Admin Dashboard Template by Themefisher.com</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <!-- Custom Stylesheet -->
+    <link th:href="@{/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css}"
+          rel="stylesheet">
+    <!-- Page plugins css -->
+    <link th:href="@{/plugins/clockpicker/dist/jquery-clockpicker.min.css}" rel="stylesheet">
+    <!-- Color picker plugins css -->
+    <link th:href="@{/plugins/jquery-asColorPicker-master/css/asColorPicker.css}" rel="stylesheet">
+    <!-- Date picker plugins css -->
+    <link th:href="@{/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css}" rel="stylesheet">
+    <!-- Daterange picker plugins css -->
+    <link th:href="@{/plugins/timepicker/bootstrap-timepicker.min.css}" rel="stylesheet">
+    <link th:href="@{/plugins/bootstrap-daterangepicker/daterangepicker.css}" rel="stylesheet">
+
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+
+<body>
+<div th:replace="preloader"></div>
+
+<div id="main-wrapper">
+
+    <div th:replace="/fragments/nav-header"></div>
+
+    <div th:replace="/fragments/header"></div>
+
+    <div th:replace="/fragments/menu"></div>
+
+    <div class="content-body">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="basic-form">
+                                <form th:action="@{/produtos/editar/{id}(id=${produtoEntity.id})}"
+                                      th:object="${produtoEntity}" method="post">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label>Nome</label>
+                                            <input type="text"
+                                                   class="form-control"
+                                                   placeholder="Nome completo"
+                                                   th:field="*{nome}">
+                                        </div>
+                                    </div>
+                                    <div class="row form-material">
+                                        <div class="form-group col-md-6">
+                                            <label>Marca</label>
+                                            <input type="text" class="form-control" th:field="*{marca}">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label>Data de Fabricação</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control mydatepicker"
+                                                       placeholder="mm/dd/yyyy" th:field="*{dataDeFabricacao}"> <span
+                                                    class="input-group-append"><span class="input-group-text"><i
+                                                    class="mdi mdi-calendar-check"></i></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-material">
+                                        <div class="form-group col-md-6">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label>Data de Vencimento</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control mydatepicker"
+                                                       placeholder="mm/dd/yyyy" th:field="*{dataDeVencimento}"> <span
+                                                    class="input-group-append"><span class="input-group-text"><i
+                                                    class="mdi mdi-calendar-check"></i></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label>Preço de Compra</label>
+                                            <input type="number"
+                                                   class="form-control"
+                                                   step="0,01"
+                                                   th:field="*{precoDeCompra}">
+                                        </div>
+                                        <div class="form-group col-md-4 ">
+                                            <label>Preço de Venda</label>
+                                            <input type="number"
+                                                   class="form-control"
+                                                   th:field="*{precoDeVenda}"
+                                                   step="0,01">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="/fragments/footer"></div>
+
+</div>
+
+<script th:src="@{/plugins/common/common.min.js}"></script>
+<script th:src="@{/js/custom.min.js}"></script>
+<script th:src="@{/js/settings.js}"></script>
+<script th:src="@{/js/gleek.js}"></script>
+<script th:src="@{/js/styleSwitcher.js}"></script>
+
+<script th:src="@{/plugins/moment/moment.js}"></script>
+<script th:src="@{/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js}"></script>
+<!-- Clock Plugin JavaScript -->
+<script th:src="@{/plugins/clockpicker/dist/jquery-clockpicker.min.js}"></script>
+<!-- Color Picker Plugin JavaScript -->
+<script th:src="@{/plugins/jquery-asColorPicker-master/libs/jquery-asColor.js}"></script>
+<script th:src="@{/plugins/jquery-asColorPicker-master/libs/jquery-asGradient.js}"></script>
+<script th:src="@{/plugins/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js}"></script>
+<!-- Date Picker Plugin JavaScript -->
+<script th:src="@{/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js}"></script>
+<!-- Date range Plugin JavaScript -->
+<script th:src="@{/plugins/timepicker/bootstrap-timepicker.min.js}"></script>
+<script th:src="@{/plugins/bootstrap-daterangepicker/daterangepicker.js}"></script>
+
+<script th:src="@{/js/plugins-init/form-pickers-init.js}"></script>
+
+</body>
+
+</html>
