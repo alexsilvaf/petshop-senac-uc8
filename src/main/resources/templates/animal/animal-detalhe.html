@@ -41,46 +41,26 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="basic-form">
-                                <form th:action="@{/usuarios/add}" th:object="${usuarioEntity}" method="post">
+                                <form th:action="@{/animais/add}" th:object="${animalEntity}" method="post">
                                     <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label>Email</label>
-                                            <input type="email" class="form-control readonly" placeholder="E-mail" th:field="*{email}">
-                                        </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-12">
                                             <label>Nome</label>
                                             <input type="text"
                                                    class="form-control"
                                                    placeholder="Nome completo"
                                                    th:field="*{nome}">
                                         </div>
-                                        <div class="form-group col-md-2">
-                                            <label>Telefone</label>
-                                            <input type="text" class="form-control" placeholder="(__) _ ____-____" th:field="*{telefone}">
-                                        </div>
                                     </div>
                                     <div class="row form-material">
-
-                                        <div class="form-group col-md-3">
-                                            <label>Telefone Secundário</label>
-                                            <input type="text" class="form-control" placeholder="(__) _ ____-____" th:field="*{telefoneSecundario}">
-                                        </div>
-
-                                        <div class="form-group col-md-5">
-                                            <label>Estado Civil</label>
-                                            <select id="estadoCivil"  class="form-control" th:field="*{estadoCivil}">
-                                                <option value="null" selected="selected">Escolha</option>
-                                                <option th:each="estadoCivil : ${T(com.senac.starter.enums.EstadoCivil).values()}"
-                                                        th:text="${estadoCivil}"
-                                                        th:value="${estadoCivil}">
-                                                </option>
-                                            </select>
-                                        </div>
 
                                         <div class="form-group col-md-2">
                                             <label>Data de Nascimento</label>
                                             <div class="input-group">
-                                                <input type="text" class="form-control mydatepicker" placeholder="mm/dd/yyyy" th:field="*{dataNascimento}"> <span class="input-group-append"><span class="input-group-text"><i class="mdi mdi-calendar-check"></i></span></span>
+                                                <input type="text" class="form-control mydatepicker" placeholder="mm/dd/yyyy" th:field="*{dataDeNascimento}">
+                                                <span class="input-group-append">
+                                                    <span class="input-group-text"><i class="mdi mdi-calendar-check"></i>
+                                                    </span>
+                                                </span>
                                             </div>
                                         </div>
 
@@ -94,39 +74,22 @@
                                                 </option>
                                             </select>
                                         </div>
+
+                                        <div class="form-group col-md-4">
+                                            <label>Espécie</label>
+                                            <input type="text" class="form-control" placeholder="Espécie" th:field="*{especie}">
+                                        </div>
+
+
+
+                                        <div class="form-group col-md-4">
+                                            <label>Raça</label>
+                                            <input type="text" class="form-control" placeholder="Raça" th:field="*{raca}">
+                                        </div>
                                     </div>
 
-                                    <div class="form-row">
-                                        <div class="form-group col-md-2">
-                                            <label>Cep</label>
-                                            <input type="text" class="form-control" th:field="*{cep}">
-                                        </div>
-                                        <div class="form-group col-md-8">
-                                            <label>Rua</label>
-                                            <input type="text" class="form-control" th:field="*{rua}">
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label>Número</label>
-                                            <input type="number" class="form-control" th:field="*{numero}">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label>Cidade</label>
-                                            <input type="text" class="form-control" th:field="*{cidade}">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label>Estado</label>
-                                            <select id="inputState" class="form-control" th:field="*{estado}">
-                                                <option value="" selected="selected">Escolha</option>
-                                                <option th:each="estado : ${T(com.senac.starter.enums.Estado).values()}"
-                                                        th:text="${estado.getNome()}"
-                                                        th:value="${estado.getSigla()}">
-                                                </option>
-                                            </select>
-
-                                        </div>
-
-                                    </div>
                                     <button type="submit" class="btn btn-primary">Salvar</button>
+                                    <a th:href="@{/animais}" class="btn btn-light">Cancelar</a>
                                 </form>
                             </div>
                         </div>

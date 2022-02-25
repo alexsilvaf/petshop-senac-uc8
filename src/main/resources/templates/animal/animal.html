@@ -35,12 +35,12 @@
                                         <span class="card-widget__icon"><i class="icon-emotsmile"></i></span>
                                         <div class="media-body">
                                             <h3 class="text-white">
-                                                <span th:text="${#lists.size(usuarios)}"/>
+                                                <span th:text="${#lists.size(animais)}"/>
                                                 Usuários Cadastrados
                                             </h3>
                                         </div>
                                         <div class="right">
-                                            <a href="/usuarios/add">
+                                            <a href="/animais/add">
                                                 <button type="button"  class="btn mb-1 btn-rounded btn-info btn-lg">
                                                     <i class="icon-plus" style="margin-top:10px"></i>
                                                     Novo Usuário
@@ -54,25 +54,27 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th scope="col">id</th>
+                                        <th scope="col">#</th>
                                         <th scope="col">Nome</th>
                                         <th scope="col">Data de Nascimento</th>
-                                        <th scope="col">Casado</th>
-                                        <th scope="col">Opções</th>
+                                        <th scope="col">Sexo</th>
+                                        <th scope="col">Especie</th>
+                                        <th scope="col">Raça</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="usuario : ${usuarios}">
-                                        <th scope="row" th:text="${usuario.id}"></th>
+                                    <tr th:each="animal : ${animais}">
+                                        <th scope="row" th:text="${animal.id}"></th>
                                         <td>
-                                            <a th:href="@{'/usuarios/' + ${usuario.id}}" th:text="${usuario.nome}"></a>
+                                            <a th:href="@{'/animais/' + ${animal.id}}" th:text="${animal.nome}"></a>
 
                                         </td>
-
-                                        <td th:text="${usuario.dataNascimento}"></td>
-                                        <td th:text="${usuario.estadoCivil}"></td>
+                                        <td th:text="${animal.dataDeNascimento}"></td>
+                                        <td th:text="${animal.sexo}"></td>
+                                        <td th:text="${animal.especie}"></td>
+                                        <td th:text="${animal.raca}"></td>
                                         <td>
-                                            <a th:href="@{'/usuarios/deletar/' + ${usuario.id}}">
+                                            <a th:href="@{'/animais/deletar/' + ${animal.id}}">
                                                 <i class="icon-trash" ></i>
                                             </a>
 

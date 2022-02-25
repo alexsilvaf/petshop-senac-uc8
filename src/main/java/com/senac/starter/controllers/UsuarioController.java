@@ -52,7 +52,6 @@ public class UsuarioController {
     public String adicionarUsuario(Usuario usuario){
 
         usuarioRepository.save(usuario);
-        Usuario us = new Usuario();
 
         return "redirect:/usuarios";
     }

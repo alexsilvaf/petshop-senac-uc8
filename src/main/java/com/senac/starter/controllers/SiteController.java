@@ -30,15 +30,7 @@ public class SiteController {
         Usuario usuario = new Usuario();
 
         LocalDateTime now = LocalDateTime.now();
-        String mensagem = "";
-        if(usuario.getCasado()){
-             mensagem = "Bem vindo " + usuario.getNome() + " agora são: " + now.getHour()
-                    + " horas e " + now.getMinute()+ " minutos.\n" + "Verificamos que você é casado e tem anos" ;
-
-        }else {
-            mensagem = "Bem vindo " + usuario.getNome() + " agora são: " + now.getHour()
-                    + " horas e " + now.getMinute()+ " minutos.\n" + "Verificamos que você não é casado e tem anos";
-        }
+        String mensagem = "Hello word";
 
 
         modelAndView.addObject("mensagem",mensagem);

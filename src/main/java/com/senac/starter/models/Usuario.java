@@ -21,7 +21,8 @@ public class Usuario implements Serializable {
     private Long id;
 
     private String nome;
-    private Boolean casado;
+    private String sexo;
+    private String estadoCivil;
     private String email;
     private String telefone;
     private String telefoneSecundario;
@@ -34,7 +35,7 @@ public class Usuario implements Serializable {
 
     public void update(Usuario usuario){
         this.nome = usuario.nome;
-        this.casado = usuario.casado;
+        this.estadoCivil = usuario.estadoCivil;
         this.email = usuario.email;
         this.telefone = usuario.telefone;
         this.telefoneSecundario = usuario.telefoneSecundario;
