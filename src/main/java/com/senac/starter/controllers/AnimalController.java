@@ -2,6 +2,7 @@ package com.senac.starter.controllers;
 
 import com.senac.starter.models.Animal;
 import com.senac.starter.repositorys.AnimalRepository;
+import com.senac.starter.repositorys.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,9 @@ public class AnimalController {
 
     @Autowired
     AnimalRepository animalRepository;
+
+    @Autowired
+    UsuarioRepository usuarioRepository;
 
     @GetMapping
     public ModelAndView listar(){
@@ -44,7 +48,10 @@ public class AnimalController {
     @GetMapping("/add")
     public ModelAndView adicionarAnimalPage(){
         ModelAndView modelAndView = new ModelAndView("animal/animal-detalhe");
+
         modelAndView.addObject("animalEntity", new Animal());
+        modelAndView.addObject("donos", usuarioRepository.findAll());
+
         return modelAndView;
     }
 
@@ -61,7 +68,9 @@ public class AnimalController {
         ModelAndView modelAndView = new ModelAndView("animal/animal-editar");
 
         Animal animal = animalRepository.findAnimalById(id);
+
         modelAndView.addObject("animalEntity",animal);
+        modelAndView.addObject("donos", usuarioRepository.findAll());
 
         return modelAndView;
     }

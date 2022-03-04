@@ -1,15 +1,16 @@
 package com.senac.starter.models;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 public class Produto implements Serializable {
@@ -24,5 +25,8 @@ public class Produto implements Serializable {
     private String marca;
     private double precoDeCompra;
     private double precoDeVenda;
+
+    @ManyToOne
+    private Venda vendas;
 
 }

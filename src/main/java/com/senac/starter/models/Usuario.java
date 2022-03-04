@@ -1,17 +1,16 @@
 package com.senac.starter.models;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 public class Usuario implements Serializable {
@@ -32,6 +31,9 @@ public class Usuario implements Serializable {
     private Integer numero;
     private String cidade;
     private String estado;
+
+    @OneToMany(mappedBy = "dono", fetch = FetchType.LAZY)
+    private List<Animal> animais;
 
     public void update(Usuario usuario){
         this.nome = usuario.nome;

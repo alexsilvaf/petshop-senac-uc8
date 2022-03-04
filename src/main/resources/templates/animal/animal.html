@@ -56,6 +56,7 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Nome</th>
+                                        <th scope="col">Dono</th>
                                         <th scope="col">Data de Nascimento</th>
                                         <th scope="col">Sexo</th>
                                         <th scope="col">Especie</th>
@@ -65,10 +66,8 @@
                                     <tbody>
                                     <tr th:each="animal : ${animais}">
                                         <th scope="row" th:text="${animal.id}"></th>
-                                        <td>
-                                            <a th:href="@{'/animais/' + ${animal.id}}" th:text="${animal.nome}"></a>
-
-                                        </td>
+                                        <td><a th:href="@{'/animais/' + ${animal.id}}" th:text="${animal.nome}"></a></td>
+                                        <td th:text="${animal.dono.getNome()}"></td>
                                         <td th:text="${animal.dataDeNascimento}"></td>
                                         <td th:text="${animal.sexo}"></td>
                                         <td th:text="${animal.especie}"></td>

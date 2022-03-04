@@ -36,14 +36,14 @@
                                         <div class="media-body">
                                             <h3 class="text-white">
                                                 <span th:text="${#lists.size(vendas)}"/>
-                                                Vendas Cadastrados
+                                                Usuários Cadastrados
                                             </h3>
                                         </div>
                                         <div class="right">
                                             <a href="/vendas/add">
                                                 <button type="button"  class="btn mb-1 btn-rounded btn-info btn-lg">
                                                     <i class="icon-plus" style="margin-top:10px"></i>
-                                                    Nova Venda
+                                                    Novo Usuário
                                                 </button>
                                             </a>
                                         </div>
@@ -54,23 +54,21 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th scope="col">id</th>
-                                        <th scope="col">Nome</th>
-                                        <th scope="col">Data de Nascimento</th>
-                                        <th scope="col">Casado</th>
-                                        <th scope="col">Opções</th>
+                                        <th scope="col">#</th>
+                                        <th scope="col">totalVenda</th>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Forma de Pagamento</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr th:each="venda : ${vendas}">
                                         <th scope="row" th:text="${venda.id}"></th>
                                         <td>
-                                            <a th:href="@{'/vendas/' + ${venda.id}}" th:text="${venda.nome}"></a>
+                                            <a th:href="@{'/vendas/' + ${venda.id}}" th:text="${venda.totalVenda}"></a>
 
                                         </td>
-
-                                        <td th:text="${venda.dataNascimento}"></td>
-                                        <td th:text="${venda.estadoCivil}"></td>
+                                        <td th:text="${venda.data}"></td>
+                                        <td th:text="${venda.formaDePagamento}"></td>
                                         <td>
                                             <a th:href="@{'/vendas/deletar/' + ${venda.id}}">
                                                 <i class="icon-trash" ></i>
